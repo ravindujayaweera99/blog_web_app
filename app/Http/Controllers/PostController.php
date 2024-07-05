@@ -12,7 +12,12 @@ class PostController extends Controller
 {
     public function index()
     {
-        return view('posts');
+        return view('addpost');
+    }
+
+    public function edit(Post $post)
+    {
+        return view('updatepost', compact('post'));
     }
 
     public function store(Request $request)
@@ -51,6 +56,8 @@ class PostController extends Controller
             'title' => 'required|max:32',
             'body' => 'required|string|max:255'
         ]);
+
+        $userPosts = Post::where('user_id', Auth::id())->get();
 
         // Ensure the authenticated user is the owner of the post
         if ($post->user_id !== Auth::id()) {

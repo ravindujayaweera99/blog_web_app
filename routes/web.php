@@ -19,9 +19,10 @@ Route::get('/contactus', function () {
 })->name('contactus');
 Route::post('/contactus', [App\Http\Controllers\FeedbackController::class, 'store'])->name('feedback.store');
 
-Route::get('/post', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
-Route::post('/posts', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
-Route::put('/posts/{post}', [PostController::class, 'update'])->name('post.update');
+Route::get('/addpost', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
+Route::post('/addpost', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
+Route::get('/updatepost/{post}', [PostController::class, 'edit'])->name('post.edit');
+Route::put('/updatepost/{post}', [PostController::class, 'update'])->name('post.update');
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 // Route::get('/', [App\Http\Controllers\PostController::class, 'posts']);
 

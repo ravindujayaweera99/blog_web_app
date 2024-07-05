@@ -6,7 +6,7 @@
             </div>
         </h2>
 
-        <div class="lg:w-[30%] mx-auto">
+        <div class="lg:w-[50%] mx-auto">
 
             <!-- <div class="mt-6">
                 <x-input-label for="full_name" :value="__('Full Name')" />
@@ -34,7 +34,7 @@
             <div class="mx-auto sm:px-6 lg:px-8 mt-6 ">
                 <div class="bg-white overflow-hidden sm:rounded-lg px-6 border-black/20 shadow-md border-2">
                     <form action={{route('feedback.store')}} method="post"
-                        class="flex flex-col justify-center items-center width-[100%] py-6 m-6 ">
+                        class="flex flex-col justify-center items-center py-6 m-6 ">
                         @csrf
                         <table>
                             <tr class="flex flex-col">

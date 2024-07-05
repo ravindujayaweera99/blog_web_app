@@ -51,13 +51,14 @@
             <div>
                 <h1 class="text-2xl">Our Values</h1>
                 <ol>
-                    <li>Authenticity: We value genuine and honest expression. Be yourself and share your story in your
+                    <li><b>Authenticity:</b> We value genuine and honest expression. Be yourself and share your story in
+                        your
                         own
                         words.
-                    <li>Growth: We believe in continuous learning and improvement, both as individuals and as a
+                    <li><b>Growth:</b> We believe in continuous learning and improvement, both as individuals and as a
                         community.
                     </li>
-                    <li>Respect: We foster a respectful and inclusive community where everyone feels welcome.
+                    <li><b>Respect:</b> We foster a respectful and inclusive community where everyone feels welcome.
                     </li>
 
                 </ol>
