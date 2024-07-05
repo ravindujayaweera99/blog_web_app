@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 text-center mb-6">
             <div>
-                {{ __('Create your New Blog') }}
+                {{ __('Edit this Blog') }}
             </div>
         </h2>
 
@@ -20,7 +20,7 @@
                     <input type="text" name="body" value="{{ $post->body }}" class="border p-2">
                 </div>
                 <div class="flex justify-center items-center">
-                    <button type="submit" class="mt-6 md:mt-0 md:ml-6 bg-blue-500 text-white px-2 py-1">Update</button>
+                    <button type="submit" class="mt-6 md:mt-0 md:ml-6 bg-blue-500 text-white px-2 py-1 ">Update</button>
                 </div>
             </form>
 

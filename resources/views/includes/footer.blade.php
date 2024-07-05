@@ -1,6 +1,6 @@
-<footer class="bg-gray-100 px-32 border border-black/20">
+<footer class="bg-black text-white px-32 border border-black/20">
     <div
-        class=" h-full md:h-[20vh] flex flex-col md:flex-row md:gap-32 justify-center md:justify-between items-center md:py-32">
+        class=" h-full md:h-fit flex flex-col md:flex-row md:gap-32 justify-center md:justify-between items-center md:py-12">
         <div>
             <h1 class="text-md lg:text-xl my-6 md:my-0 md:text-3xl">✍🏻 My Blog App</h1>
 
@@ -25,7 +25,8 @@
                 <h1 class="text-center lg:text-left">Subscribe to Our News Letter</h1>
                 <div class="flex flex-col gap-3 mt-3">
                     <input type="email" placeholder="Your Email" class="w-[250px]">
-                    <button class="bg-black px-6 py-3 text-white">Subscribe</button>
+                    <button
+                        class="border border-white px-6 py-3 text-white hover:bg-white hover:text-black transition duration-150 ease-in-out rounded">Subscribe</button>
                 </div>
             </div>
         </div>
