@@ -28,7 +28,7 @@
         </div>
 
         <div class="flex flex-col md:flex-row justify-center items-center md:items-start px-32">
-            <div class="md:w-[40%] mx-auto sm:px-6 lg:px-8 flex justify-center items-center">
+            <div class="lg:w-[40%] mx-auto sm:px-6 lg:px-8 flex justify-center items-center">
                 <div class="bg-white overflow-hidden sm:rounded-lg px-6 border-black/20 shadow-md border-2">
                     <form action="{{ route('post.store') }}" method="post"
                         class="flex flex-col justify-center items-center py-6 md:m-6 ">
