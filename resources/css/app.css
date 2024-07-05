@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero-section {
+    background-image: url(../../public/build/assets/img/hero.jpg);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .hero-section {
+        background-size: cover;
+        text-align: center;
+    }
+}
