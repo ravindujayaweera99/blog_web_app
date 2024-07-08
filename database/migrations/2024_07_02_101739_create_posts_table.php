@@ -14,6 +14,7 @@ return new class extends Migration {
             $table->bigIncrements('id');
             $table->unsignedInteger('user_id');
             $table->string('title');
+            $table->string('image');
             $table->text('body');
             $table->timestamps();
         });

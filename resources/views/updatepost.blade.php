@@ -8,12 +8,21 @@
 
         <div class="flex justify-center items-center">
             <form action="{{ route('post.update', $post->id) }}" method="post"
-                class="flex flex-col justify-center items-center md:block border border-black/10 px-6 py-12 shadow-md">
+                class="flex flex-col justify-center items-center md:block border border-black/10 px-6 py-12 shadow-md"
+                enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="flex justify-between items-center gap-16 mb-6">
                     <label for="title">Title: </label>
                     <input type="text" name="title" value="{{ $post->title }}" class="border p-2">
+                </div>
+                <div class="mb-3">
+                    <label for="inputImage" class="form-label"><strong>Image:</strong></label>
+                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
+                        id="inputImage">
+                    @error('image')
+                        <div class="form-text text-red-500">{{ $message }}</div>
+                    @enderror
                 </div>
                 <div class="flex justify-between items-center mb-6">
                     <label for="title">Content: </label>

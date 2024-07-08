@@ -41,30 +41,38 @@
                     class="mb-6 px-4 py-2 text-black border border-black rounded hover:bg-black hover:text-white transition duration-150 ease-in-out">Add
                     New
                     Post</a>
-                @foreach ($userPosts as $userPost)
-                    <div
-                        class="bg-black text-white w-[80vw] md:w-[90%] rounded overflow-hidden border-black/50 shadow-md border mb-6 flex justify-between items-center">
-                        <div class="px-6 py-4">
-                            <div class="font-bold text-xl mb-2">Title: {{ $userPost->title }}</div>
-                            <p class="text-gray-200 text-base">
-                                <b>Content:</b> {{ $userPost->body }}
-                            </p>
-                        </div>
-                        <div class="md:px-6 py-4 flex flex-col md:flex-row gap-4 md:justify-start items-center">
-                            <a href={{route('post.edit', $userPost->id)}}
-                                class="mt-6 md:mt-0 md:ml-6 border border-blue-500 rounded text-blue-500 px-2 py-1 hover:bg-blue-500 hover:text-white transition duration-150 ease-in-out">Edit
-                                this
-                                Blog</a>
+                <div class="flex flex-wrap justify-center items-center">
+                    @foreach ($userPosts as $userPost)
+                        <div
+                            class="bg-black text-white w-[80vw] md:w-[70%] rounded overflow-hidden border-black/50 shadow-md border mb-6 flex flex-col text-center justify-between items-center">
+                            <div class="px-6 py-4">
+                                <div class="font-bold text-xl mb-2">Title: {{ $userPost->title }}</div>
+                                @if ($userPost->image)
+                                    <img src="{{ asset('storage/images/' . $userPost->image) }}" alt="{{ $userPost->title }}"
+                                        class="h-[200px] w-[90%] mx-auto my-6 rounded">
+                                @else
+                                    <div class="h-[200px] w-[90%] mx-auto bg-white my-6 rounded"></div>
+                                @endif
+                                <p class="text-gray-200 text-base">
+                                    <b>Content:</b> {{ $userPost->body }}
+                                </p>
+                            </div>
+                            <div class="md:px-6 py-4 flex flex-col md:flex-row gap-4 md:justify-start items-center">
+                                <a href={{route('post.edit', $userPost->id)}}
+                                    class="mt-6 md:mt-0 md:ml-6 border border-blue-500 rounded text-blue-500 px-2 py-1 hover:bg-blue-500 hover:text-white transition duration-150 ease-in-out">Edit
+                                    this
+                                    Blog</a>
 
-                            <form action="{{ route('post.destroy', $userPost->id) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit"
-                                    class="border border-red-500 rounded text-red-500 px-2 py-1 hover:bg-red-500 hover:text-white transition duration-150 ease-in-out">Delete</button>
-                            </form>
+                                <form action="{{ route('post.destroy', $userPost->id) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="border border-red-500 rounded text-red-500 px-2 py-1 hover:bg-red-500 hover:text-white transition duration-150 ease-in-out">Delete</button>
+                                </form>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
         </div>
     </div>
