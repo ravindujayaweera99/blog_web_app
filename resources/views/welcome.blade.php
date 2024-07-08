@@ -23,7 +23,7 @@
                 </a>
                 @auth
                     <a href="{{ url('/dashboard') }}"
-                        class="rounded-md px-3 py-2 text-black text-sm my-auto md:text-sm ring-1 ring-transparent transition hover:text-purple focus:outline-none focus-visible:ring-[#FF2D20] ">
+                        class="rounded-md px-3 py-2 bg-purple text-white text-black text-sm my-auto md:text-sm ring-1 ring-transparent transition hover:text-black focus:outline-none focus-visible:ring-[#FF2D20] ">
                         Dashboard
                     </a>
 
