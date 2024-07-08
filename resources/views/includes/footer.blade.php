@@ -1,6 +1,6 @@
 <footer class="bg-main text-black px-32 py-16 border border-black/20">
-    <div class=" h-[20vh] md:h-[20vh] flex md:flex-row  justify-center md:justify-between items-center">
-        <div class="text-center flex gap-32 w-[80%]">
+    <div class=" h-[30vh] md:h-[20vh] flex flex-col md:flex-row  justify-center md:justify-between items-center">
+        <div class="text-center flex flex-col lg:flex-row lg:gap-32 w-[80%] mb-12">
             <h1 class="text-md lg:text-3xl my-6 md:my-0 md:text-3xl">✍🏻 My Blog App</h1>
             <ul class="flex justify-center items-center w-[100%] gap-4 mt-6">
                 <a href={{route('welcome')}} class="hover:text-purple text-xl font-bold">

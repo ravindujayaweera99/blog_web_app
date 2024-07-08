@@ -67,9 +67,9 @@
                     <div
                         class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                         <div class="font-bold text-2xl mb-2 uppercase">{{ $post->title }}</div>
-                        <p class="text-gray-200 text-md font-light mb-6">
-                            {{ $post->body }}
-                        </p>
+                        <!-- <p class="text-gray-200 text-md font-light mb-6">
+                                {{ $post->body }}
+                            </p> -->
                         <div>
                             <div class="font-extralight text-[10px]">Posted By: {{ $post->user_id }}</div>
                             <div class="font-extralight text-[10px] mb-2">Posted On: {{ $post->created_at }}</div>
