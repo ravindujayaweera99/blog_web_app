@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    @include('includes/navbar');
+    @include('includes/navbar')
 
     <div class="container w-[75%] mx-auto py-8">
         <h1 class="text-3xl font-bold mb-4 text-center">{{ $post->title }}</h1>
