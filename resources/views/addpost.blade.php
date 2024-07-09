@@ -4,59 +4,44 @@
 </head>
 
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 text-center mb-6">
-            <div>
-                {{ __('Create your New Blog') }}
-            </div>
-        </h2>
 
+    <div class="lg:w-[80%] h-fit flex justify-center items-center mx-auto sm:px-6 lg:px-8 max-h-[80vh]">
+        <div class=" w-[100%] sm:rounded-lg">
+            <form action="{{ route('post.store') }}" method="post" class="flex flex-col py-6 md:m-6 gap-6"
+                enctype="multipart/form-data">
+                <h1 class="font-bold text-2xl">Add New Post</h1>
+                @csrf
 
-        <div class="lg:w-[80%] mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white w[100%] sm:rounded-lg px-6 border-black/20 shadow-md border-2">
-                <form action="{{ route('post.store') }}" method="post" class="flex flex-col py-6 md:m-6 gap-6"
-                    enctype="multipart/form-data">
-                    <h1 class="font-bold text-2xl">Add New Post</h1>
-                    @csrf
-                    <table>
-                        <tr class="flex flex-col mb-6">
-                            <td>Title:</td>
-                            <td><input type="text" name="title" value=""></td>
-                        </tr>
+                <div class="w-[100%] flex flex-col mb-6">
+                    <label for="title" class="font-bold">Blog Title</label>
+                    <input type="text" name="title" value="">
+                </div>
 
-                        <tr class="flex flex-col mb-6">
-                            <td>Content:</td>
-                            <td><textarea name="body"></textarea></td>
-                        </tr>
+                <div class="w-[100%] flex flex-col mb-6">
+                    <label for="body" class="font-bold">Blog Content</label>
+                    <textarea name="body"></textarea>
+                </div>
 
-                        <!-- <tr class="flex flex-col mb-6">
-                            <td>Content:</td>
-                            <td class="w-full"><input type="text" name="body" value=""></td>
-                        </tr> -->
+                <div class="w-[100%] flex flex-col mb-6">
+                    <label for="inputImage" class="form-label font-bold">Blog Image:</label>
+                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
+                        id="inputImage">
+                    @error('image')
+                        <div class="form-text text-red-500">{{ $message }}</div>
+                    @enderror
+                </div>
 
-                        <tr class="flex flex-col mb-6">
-                            <td>
-                                <div class="mb-3">
-                                    <label for="inputImage" class="form-label"><strong>Image:</strong></label>
-                                    <input type="file" name="image"
-                                        class="form-control @error('image') is-invalid @enderror" id="inputImage">
-                                    @error('image')
-                                        <div class="form-text text-red-500">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </td>
-                        </tr>
+                <div class="w-[100%] flex flex-col mb-6">
+                    <input type="submit" value="Publish"
+                        class="inline-flex items-center px-4 py-2 bg-purple border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:text-black cursor-pointer focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" />
+                </div>
 
-                        <tr>
-                            <td class="p-4 m-6 bg-black rounded text-white text-center cursor-pointer">
-                                <input type="submit" value="Publish" />
-                            </td>
-                        </tr>
-                    </table>
-                </form>
-            </div>
+            </form>
         </div>
-    </x-slot>
+        <div>
+            <img src="/images/addpost.svg" alt="">
+        </div>
+    </div>
 
 
 
