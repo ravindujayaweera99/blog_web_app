@@ -49,7 +49,7 @@
                             class="bg-main text-black w-[80vw] md:w-[100%] rounded overflow-hidden border-black/50 shadow-md border mb-6 flex flex-col text-center justify-between items-center">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl mb-2">{{ $userPost->title }}</div>
-                                <div class="text-sm">Published On: {{$userPost->created_at}}</div>
+                                <div class="text-sm">Published {{$userPost->created_at->diffForHumans()}}</div>
                                 @if ($userPost->image)
                                     <img src="{{ asset('storage/images/' . $userPost->image) }}" alt="{{ $userPost->title }}"
                                         class="h-[200px] w-[90%] mx-auto my-6 border border-black rounded">
@@ -57,19 +57,17 @@
                                     <div class="h-[200px] w-[90%] mx-auto bg-white my-6 rounded"></div>
                                 @endif
                                 <!-- <p class="text-black text-base">
-                                                            <b>Content:</b> {!! $userPost->body !!}
-                                                        </p> -->
+                                                                    <b>Content:</b> {!! $userPost->body !!}
+                                                                </p> -->
                             </div>
                             <div class="md:px-6 py-4 flex flex-col md:flex-row gap-4 md:justify-start items-center">
                                 <a href={{route('singlePost', $userPost->id)}}
                                     class="mt-6 md:mt-0  border bg-green-500 text-white font-bold border-green-500 rounded hover:text-black px-2 py-1 hover:bg-green-500 transition duration-150 ease-in-out">View
-                                    this
-                                    Blog</a>
+                                </a>
 
                                 <a href={{route('post.edit', $userPost->id)}}
                                     class="mt-6 md:mt-0 border bg-blue-500 text-white font-bold border-blue-500 rounded hover:text-black px-2 py-1 hover:bg-blue-500 transition duration-150 ease-in-out">Edit
-                                    this
-                                    Blog</a>
+                                </a>
 
                                 <form action="{{ route('post.destroy', $userPost->id) }}" method="post">
                                     @csrf
