@@ -34,11 +34,13 @@
                             class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div class="font-bold text-5xl mb-2 uppercase px-6">{{ $post->title }}</div>
                             <!-- <p class="text-gray-200 text-md font-light mb-6">
-                                                                                            {{ $post->body }}
-                                                                                        </p> -->
+                                                                                                                        {{ $post->body }}
+                                                                                                                    </p> -->
                             <div>
-                                <div class="font-extralight text-md">Posted By: {{ $post->user->name }}</div>
-                                <div class="font-extralight text-md mb-2">Posted On: {{ $post->created_at }}</div>
+                                <div class="font-normal text-md text-white">By {{ $post->user->name }}</div>
+                                <div class="font-normal text-sm my-2 text-white">Posted
+                                    {{ $post->created_at->diffForHumans() }}
+                                </div>
                             </div>
                         </div>
                     </div>

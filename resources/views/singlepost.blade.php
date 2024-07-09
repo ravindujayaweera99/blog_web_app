@@ -12,7 +12,7 @@
 
     <div class="container w-[75%] mx-auto py-8">
         <h1 class="text-3xl font-bold mb-4 text-center">{{ $post->title }}</h1>
-        <p class="text-center">Published by: {{$post->user->name}}</p>
+        <p class="text-center">Published by {{$post->user->name}} {{$post->created_at->diffForHumans()}}</p>
         @if($post->image)
             <img src="{{ asset('storage/images/' . $post->image) }}" alt="{{ $post->title }}"
                 class="w-[50%] h-auto my-4 mx-auto">
