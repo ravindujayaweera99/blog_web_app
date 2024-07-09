@@ -12,9 +12,10 @@
 
     <div class="container w-[75%] mx-auto py-8">
         <h1 class="text-3xl font-bold mb-4 text-center">{{ $post->title }}</h1>
+        <p class="text-center">Published by: {{$post->user->name}}</p>
         @if($post->image)
             <img src="{{ asset('storage/images/' . $post->image) }}" alt="{{ $post->title }}"
-                class="w-[50%] h-auto mb-4 mx-auto">
+                class="w-[50%] h-auto my-4 mx-auto">
         @endif
         <p class="text-red-500">{!! $post->body !!}</p>
     </div>

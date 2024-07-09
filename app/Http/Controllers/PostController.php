@@ -53,7 +53,7 @@ class PostController extends Controller
 
     public function posts()
     {
-        $posts = Post::all();
+        $posts = Post::with('user')->get();
 
         return view('welcome', compact('posts'));
     }
