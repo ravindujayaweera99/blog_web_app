@@ -26,7 +26,7 @@ Route::put('/updatepost/{post}', [PostController::class, 'update'])->name('post.
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.destroy');
 // Route::get('/', [App\Http\Controllers\PostController::class, 'posts']);
 
-
+Route::get('/singlepost/{post}', [PostController::class, 'viewPost'])->name('singlePost');
 
 Route::get('/dashboard', [PostController::class, 'userPosts'])->middleware(['auth', 'verified'])->name('dashboard');
 

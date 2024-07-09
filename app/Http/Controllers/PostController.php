@@ -51,7 +51,6 @@ class PostController extends Controller
         return redirect()->back()->with('success', 'Post posted Successfully!');
     }
 
-
     public function posts()
     {
         $posts = Post::all();
@@ -70,11 +69,9 @@ class PostController extends Controller
     {
         $request->validate([
             'title' => 'required|max:32',
-            'body' => 'required|string|max:255',
+            'body' => 'required|string',
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
-        $userPosts = Post::where('user_id', Auth::id())->get();
 
         // Handle file upload if new image is provided
         if ($request->hasFile('image')) {
@@ -90,10 +87,14 @@ class PostController extends Controller
 
         $post->title = $request->input('title');
         $post->body = $request->input('body');
-        $post->body = $request->input('body');
         $post->save();
 
         return redirect()->back()->with('success', 'Post updated successfully!');
+    }
+
+    public function viewPost(Post $post)
+    {
+        return view('singlepost', compact('post'));
     }
 
     public function destroy(Post $post)
