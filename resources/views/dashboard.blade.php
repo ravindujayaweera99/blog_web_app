@@ -56,13 +56,18 @@
                                 @else
                                     <div class="h-[200px] w-[90%] mx-auto bg-white my-6 rounded"></div>
                                 @endif
-                                <p class="text-black text-base">
-                                    <b>Content:</b> {!! $userPost->body !!}
-                                </p>
+                                <!-- <p class="text-black text-base">
+                                                            <b>Content:</b> {!! $userPost->body !!}
+                                                        </p> -->
                             </div>
                             <div class="md:px-6 py-4 flex flex-col md:flex-row gap-4 md:justify-start items-center">
+                                <a href={{route('singlePost', $userPost->id)}}
+                                    class="mt-6 md:mt-0  border bg-green-500 text-white font-bold border-green-500 rounded hover:text-black px-2 py-1 hover:bg-green-500 transition duration-150 ease-in-out">View
+                                    this
+                                    Blog</a>
+
                                 <a href={{route('post.edit', $userPost->id)}}
-                                    class="mt-6 md:mt-0 md:ml-6 border bg-blue-500 text-white font-bold border-blue-500 rounded hover:text-black px-2 py-1 hover:bg-blue-500 transition duration-150 ease-in-out">Edit
+                                    class="mt-6 md:mt-0 border bg-blue-500 text-white font-bold border-blue-500 rounded hover:text-black px-2 py-1 hover:bg-blue-500 transition duration-150 ease-in-out">Edit
                                     this
                                     Blog</a>
 
