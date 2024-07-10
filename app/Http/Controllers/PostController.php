@@ -63,20 +63,21 @@ class PostController extends Controller
         return view('welcome', compact('posts', 'categories', 'category', 'latestposts'));
     }
 
-    // public function allPosts(Request $request)
-    // {
-    //     $category = $request->input('category');
+    public function allPosts(Request $request)
+    {
+        $category = $request->input('category');
 
-    //     $allposts = Post::with('user')
-    //                     ->when($category, function ($query, $category) {
-    //                         return $query->where('category', $category);
-    //                     })
-    //                     ->get();
+        $allPosts = Post::with('user')
+            ->when($category, function ($query, $category) {
+                return $query->where('category', $category);
+            })
+            ->latest()
+            ->paginate(12);
 
-    //     $categories = Post::select('category')->distinct()->get();
+        $categories = Post::select('category')->distinct()->get();
 
-    //     return view('allposts', compact('allposts', 'categories', 'category'));
-    // }
+        return view('allposts', compact('allPosts', 'category', 'categories'));
+    }
 
 
     public function userPosts()

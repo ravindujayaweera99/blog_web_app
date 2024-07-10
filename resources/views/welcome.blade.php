@@ -42,7 +42,8 @@
         </form>
     </div>
 
-    <div class="flex flex-col justify-center items-center md:grid md:grid-cols-3 m-6">
+
+    <div class="flex flex-col justify-center lg:grid items-center lg:grid-cols-3 m-6">
         @foreach ($posts as $post)
             <a href="{{ route('singlePost', $post->id) }}">
                 <div class="relative w-fit text-white group m-3">
@@ -54,7 +55,7 @@
                             <div class="h-[200px]  bg-white rounded"></div>
                         @endif
                         <div
-                            class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-90 opacity-80 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-90 opacity-80 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div class="font-bold text-5xl mb-2 uppercase px-6">{{ $post->title }}</div>
                             <div class="font-bold text-lg uppercase my-2 text-purple">Category: {{ $post->category }}
                             </div>
@@ -70,6 +71,13 @@
             </a>
         @endforeach
     </div>
+
+
+    <div class="m-4 flex justify-center items-center w-[100%]">
+        <a href="{{ route('allposts') }}"
+            class="text-white text-md py-4 px-6 bg-purple rounded hover:text-black my-4">View All Blogs</a>
+    </div>
+
 
 
     @include('includes/footer')

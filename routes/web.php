@@ -4,7 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [PostController::class, 'latestPost'])->name('welcome');
+Route::get('/', [PostController::class, 'filterByCategory'])->name('welcome');
+Route::get('/allposts', [PostController::class, 'allPosts'])->name('allposts');
 
 Route::get('/aboutus', function () {
     return view('aboutus');
