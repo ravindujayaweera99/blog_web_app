@@ -1,9 +1,9 @@
 <header class="flex flex-col md:flex-row justify-between items-center py-6 px-32 shadow-md font-bold  text-black">
     <a href={{route('welcome')}}>
-        <h1 class="text-md md:text-3xl text-purple">✍🏻 My Blog App</h1>
+        <h1 class="text-md md:text-3xl text-purple mb-8 md:mb-0">✍🏻 My Blog App</h1>
     </a>
     @if (Route::has('login'))
-        <div class="-mx-3 flex flex-1 justify-end">
+        <div class="-mx-3 flex flex-1 gap-12 md:gap-8 justify-end">
             <a href={{route('aboutus')}}
                 class="list-none rounded-md px-3 py-2 text-black text-center text-sm my-auto md:text-sm ring-1 ring-transparent transition hover:text-purple focus:outline-none focus-visible:ring-[#FF2D20] ">
                 <li>About Us</li>

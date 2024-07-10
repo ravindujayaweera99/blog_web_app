@@ -19,7 +19,7 @@
             </div>
 
 
-            <div class="flex flex-row-reverse justify-center items-center gap-6 mb-32">
+            <div class="flex flex-col md:flex-row-reverse justify-center items-center gap-6 mb-32">
                 <div>
                     <h1 class="text-2xl text-center mb-6 font-bold">Our Mission</h1>
                     <p>Our mission is to create a community where everyone feels inspired to write and share their
@@ -31,7 +31,7 @@
             </div>
 
 
-            <div class="flex justify-center items-center gap-6 mb-32">
+            <div class="flex flex-col md:flex-row justify-center items-center gap-6 mb-32">
                 <div>
                     <h1 class="text-2xl text-center font-bold">What We Offer</h1>
                     <ol class="flex flex-col gap-6 mt-6">
@@ -65,7 +65,7 @@
             </div>
 
 
-            <div class="flex flex-row-reverse justify-center items-center mb-32">
+            <div class="flex flex-col md:flex-row-reverse justify-center items-center mb-32">
                 <div>
                     <h1 class="text-2xl text-center font-bold">Our Values</h1>
                     <ol class="flex flex-col gap-6 mt-6">
@@ -87,7 +87,7 @@
                     </ol>
                 </div>
                 <div>
-                    <img src="/images/about3.svg" alt="">
+                    <img src="/images/about3.svg" alt="" class="mt-6 md:mt-0">
                 </div>
             </div>
 
@@ -107,4 +107,3 @@
     @include('includes/footer');
 
 </x-app-layout>
-

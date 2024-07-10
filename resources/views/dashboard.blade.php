@@ -43,28 +43,28 @@
                     Post</a>
                 <h1 class="text-3xl my-6 uppercase text-center">Currently Published Blogs</h1>
 
-                <div class="flex flex-col lg:grid lg:grid-cols-3 gap-16 w-[100vw]  px-32 mt-6">
+                <div class="flex flex-col gap-4 md:gap-16 w-[100vw] px-32 mt-6">
                     @foreach ($userPosts as $userPost)
                         <div
-                            class="bg-main text-black w-[80vw] md:w-[100%] rounded overflow-hidden border-black/50 shadow-md border mb-6 flex flex-col text-center justify-between items-center">
-                            <div class="px-6 py-4">
-                                <div class="font-bold text-xl">{{ $userPost->title }}</div>
-                                <div class="font-bold text-purple">Category: {{$userPost->category}}</div>
+                            class="bg-main text-black w-[100%] rounded overflow-hidden border-black/50 shadow-md border md:flex text-center justify-center md:justify-between items-center py-4 md:py-0">
+                            <div class="flex flex-col md:flex-row justify-start items-center md:gap-12 px-4 md:w-[80%]">
+                                <div class="font-bold text-sm">{{ $userPost->title }}</div>
+                                <div class="font-bold text-purple text-sm">Category: {{$userPost->category}}</div>
                                 @if ($userPost->image)
                                     <img src="{{ asset('storage/images/' . $userPost->image) }}" alt="{{ $userPost->title }}"
-                                        class="h-[200px] w-[90%] mx-auto my-6 border border-black rounded">
+                                        class="hidden md:block h-[50px] w-[100px] my-6 border border-black rounded">
                                 @else
-                                    <div class="h-[200px] w-[90%] mx-auto bg-white my-6 rounded"></div>
+                                    <div class="h-[200px] w-[90%] bg-white my-6 rounded"></div>
                                 @endif
-                                <div class="text-sm">Published {{$userPost->created_at->diffForHumans()}}</div>
+                                <div class="text-[11px]">Published {{$userPost->created_at->diffForHumans()}}</div>
                             </div>
-                            <div class="md:px-6 py-4 flex flex-col md:flex-row gap-4 md:justify-start items-center">
+                            <div class="md:px-6 py-4 flex gap-4 justify-center items-center w-[100%] md:w-[20%]">
                                 <a href={{route('singlePost', $userPost->id)}}
-                                    class="mt-6 md:mt-0  border bg-green-500 text-white font-bold border-green-500 rounded hover:text-black px-2 py-1 hover:bg-green-500 transition duration-150 ease-in-out">View
+                                    class="md:mt-0  border bg-green-500 text-white font-bold border-green-500 rounded hover:text-black px-2 py-1 hover:bg-green-500 transition duration-150 ease-in-out">View
                                 </a>
 
                                 <a href={{route('post.edit', $userPost->id)}}
-                                    class="mt-6 md:mt-0 border bg-blue-500 text-white font-bold border-blue-500 rounded hover:text-black px-2 py-1 hover:bg-blue-500 transition duration-150 ease-in-out">Edit
+                                    class=" md:mt-0 border bg-blue-500 text-white font-bold border-blue-500 rounded hover:text-black px-2 py-1 hover:bg-blue-500 transition duration-150 ease-in-out">Edit
                                 </a>
 
                                 <form action="{{ route('post.destroy', $userPost->id) }}" method="post">

@@ -1,7 +1,7 @@
 <x-app-layout>
-    <div class="h-[80vh] w-[80%] mx-auto flex justify-center items-center">
-        <div class="w-[50%] flex flex-col justify-center items-center">
-            <h1 class="text-3xl text-black uppercase mb-6">We Value your Feedbacks</h1>
+    <div class="h-[80vh] w-[80%] mx-auto flex flex-col md:flex-row justify-center items-center">
+        <div class="md:w-[50%] flex flex-col justify-center items-center">
+            <h1 class="text-3xl text-black uppercase mb-6 text-center">We Value your Feedbacks</h1>
             <form action={{route('feedback.store')}} method="post" class="w-[80%]">
                 @csrf
                 <div class="w-[100%] flex flex-col mb-6">
@@ -29,7 +29,7 @@
             </form>
         </div>
         <div>
-            <img src="/images/feedback.svg" alt="">
+            <img src="/images/feedback.svg" alt="" class="hidden md:block">
         </div>
     </div>
 

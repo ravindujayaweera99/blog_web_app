@@ -50,27 +50,38 @@ class PostController extends Controller
     {
         $category = $request->input('category');
 
+        $latestposts = Post::with('user')->latest()->limit(6)->get();
+
         $posts = Post::with('user')
             ->when($category, function ($query, $category) {
                 return $query->where('category', $category);
             })
-            ->get();
+            ->latest()->limit(6)->get();
 
         $categories = Post::select('category')->distinct()->get();
 
-        return view('welcome', compact('posts', 'categories', 'category'));
+        return view('welcome', compact('posts', 'categories', 'category', 'latestposts'));
     }
 
-    public function posts()
-    {
-        $posts = Post::with('user')->get();
+    // public function allPosts(Request $request)
+    // {
+    //     $category = $request->input('category');
 
-        return view('welcome', compact('posts'));
-    }
+    //     $allposts = Post::with('user')
+    //                     ->when($category, function ($query, $category) {
+    //                         return $query->where('category', $category);
+    //                     })
+    //                     ->get();
+
+    //     $categories = Post::select('category')->distinct()->get();
+
+    //     return view('allposts', compact('allposts', 'categories', 'category'));
+    // }
+
 
     public function userPosts()
     {
-        $userPosts = Post::where('user_id', Auth::id())->get();
+        $userPosts = Post::where('user_id', Auth::id())->latest()->get();
         $postCount = $userPosts->count();
         return view('dashboard', compact('userPosts', 'postCount'));
     }
