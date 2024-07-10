@@ -5,9 +5,10 @@
 
 <x-app-layout>
 
-    <div class="lg:w-[80%] h-fit flex justify-center items-center mx-auto sm:px-6 lg:px-8 max-h-[80vh]">
+    <div
+        class="lg:w-[80%] h-fit flex flex-col lg:flex justify-center items-center mx-auto sm:px-6 lg:px-8 max-h-[80vh]">
         <div class=" w-[100%] sm:rounded-lg">
-            <form action="{{ route('post.store') }}" method="post" class="flex flex-col py-6 md:m-6 gap-6"
+            <form action="{{ route('post.store') }}" method="post" class="flex flex-col p-12 lg:py-6 md:m-6 gap-6"
                 enctype="multipart/form-data">
                 <h1 class="font-bold text-2xl">Add New Post</h1>
                 @csrf
@@ -51,7 +52,7 @@
             </form>
         </div>
         <div>
-            <img src="/images/addpost.svg" alt="">
+            <img src="/images/addpost.svg" alt="" class="hidden lg:block">
         </div>
     </div>
 
