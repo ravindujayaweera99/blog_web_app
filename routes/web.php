@@ -4,11 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// })->name('welcome');
-
-Route::get('/', [PostController::class, 'posts'])->name('welcome');
+Route::get('/', [PostController::class, 'filterByCategory'])->name('welcome');
 
 Route::get('/aboutus', function () {
     return view('aboutus');
@@ -24,7 +20,6 @@ Route::post('/addpost', [App\Http\Controllers\PostController::class, 'store'])->
 Route::get('/updatepost/{post}', [PostController::class, 'edit'])->name('post.edit');
 Route::put('/updatepost/{post}', [PostController::class, 'update'])->name('post.update');
 Route::delete('/posts/{post}', [PostController::class, 'destroy'])->name('post.destroy');
-// Route::get('/', [App\Http\Controllers\PostController::class, 'posts']);
 
 Route::get('/singlepost/{post}', [PostController::class, 'viewPost'])->name('singlePost');
 

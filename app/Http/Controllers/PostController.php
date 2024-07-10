@@ -3,12 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use App\Models\User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-
 
 class PostController extends Controller
 {
@@ -27,28 +24,41 @@ class PostController extends Controller
         $request->validate([
             'title' => 'required|max:32',
             'body' => 'required|string',
-            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048', // Ensure it's an image and max 2MB size
+            'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Handle file upload
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('public/images', $imageName); // Store the image in storage/app/public/images
+            $image->storeAs('public/images', $imageName);
         } else {
-            $imageName = null; // Set default image name if no image is uploaded
+            $imageName = null;
         }
 
-
-        // Save post to database
         $post = new Post();
         $post->user_id = Auth::id();
         $post->title = $request->input('title');
+        $post->category = $request->input('category');
         $post->body = $request->input('body');
-        $post->image = $imageName; // Save the image name to the database
+        $post->image = $imageName;
         $post->save();
 
         return redirect()->back()->with('success', 'Post posted Successfully!');
+    }
+
+    public function filterByCategory(Request $request)
+    {
+        $category = $request->input('category');
+
+        $posts = Post::with('user')
+            ->when($category, function ($query, $category) {
+                return $query->where('category', $category);
+            })
+            ->get();
+
+        $categories = Post::select('category')->distinct()->get();
+
+        return view('welcome', compact('posts', 'categories', 'category'));
     }
 
     public function posts()
@@ -73,16 +83,14 @@ class PostController extends Controller
             'image' => 'image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
 
-        // Handle file upload if new image is provided
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '_' . $image->getClientOriginalName();
-            $image->storeAs('public/images', $imageName); // Store the image in storage/app/public/images
-            // Delete old image if exists and update with new one
+            $image->storeAs('public/images', $imageName);
             if ($post->image) {
                 Storage::delete('public/images/' . $post->image);
             }
-            $post->image = $imageName; // Save the new image name to the database
+            $post->image = $imageName;
         }
 
         $post->title = $request->input('title');
@@ -99,7 +107,6 @@ class PostController extends Controller
 
     public function destroy(Post $post)
     {
-        // Ensure the authenticated user is the owner of the post
         if ($post->user_id !== Auth::id()) {
             return redirect()->back()->with('error', 'Unauthorized action.');
         }
@@ -108,4 +115,3 @@ class PostController extends Controller
         return redirect()->back()->with('success', 'Post deleted successfully!');
     }
 }
-

@@ -48,17 +48,15 @@
                         <div
                             class="bg-main text-black w-[80vw] md:w-[100%] rounded overflow-hidden border-black/50 shadow-md border mb-6 flex flex-col text-center justify-between items-center">
                             <div class="px-6 py-4">
-                                <div class="font-bold text-xl mb-2">{{ $userPost->title }}</div>
-                                <div class="text-sm">Published {{$userPost->created_at->diffForHumans()}}</div>
+                                <div class="font-bold text-xl">{{ $userPost->title }}</div>
+                                <div class="font-bold text-purple">Category: {{$userPost->category}}</div>
                                 @if ($userPost->image)
                                     <img src="{{ asset('storage/images/' . $userPost->image) }}" alt="{{ $userPost->title }}"
                                         class="h-[200px] w-[90%] mx-auto my-6 border border-black rounded">
                                 @else
                                     <div class="h-[200px] w-[90%] mx-auto bg-white my-6 rounded"></div>
                                 @endif
-                                <!-- <p class="text-black text-base">
-                                                                        <b>Content:</b> {!! $userPost->body !!}
-                                                                    </p> -->
+                                <div class="text-sm">Published {{$userPost->created_at->diffForHumans()}}</div>
                             </div>
                             <div class="md:px-6 py-4 flex flex-col md:flex-row gap-4 md:justify-start items-center">
                                 <a href={{route('singlePost', $userPost->id)}}

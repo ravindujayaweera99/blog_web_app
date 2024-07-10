@@ -11,7 +11,10 @@
     @include('includes/navbar')
 
     <div class="container w-[75%] mx-auto py-8">
-        <h1 class="text-3xl font-bold mb-4 text-center">{{ $post->title }}</h1>
+        <div class="mb-4">
+            <h1 class="text-3xl font-bold text-center">{{ $post->title }}</h1>
+            <p class="text-center text-purple font-bold">Category: {{$post->category}}</p>
+        </div>
         <p class="text-center">Published by {{$post->user->name}}</p>
         <p class="text-center">{{$post->created_at->diffForHumans()}}</p>
         @if($post->image)

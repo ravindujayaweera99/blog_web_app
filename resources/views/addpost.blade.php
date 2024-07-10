@@ -18,6 +18,18 @@
                 </div>
 
                 <div class="w-[100%] flex flex-col mb-6">
+                    <label for="category" class="font-bold">Category</label>
+                    <select name="category" id="category">
+                        <option value="Technology">Technology</option>
+                        <option value="Travel">Travel</option>
+                        <option value="Food">Food</option>
+                        <option value="sports">Sports</option>
+                        <option value="E-sports">E-Sports</option>
+                    </select>
+                </div>
+
+
+                <div class="w-[100%] flex flex-col mb-6">
                     <label for="body" class="font-bold">Blog Content</label>
                     <textarea name="body"></textarea>
                 </div>
