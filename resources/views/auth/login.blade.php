@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <div class="flex justify-center items-center">
+    <div class="flex flex-col lg:flex-row justify-center items-center">
         <form method="POST" action="{{ route('login') }}">
             @csrf
 
@@ -52,7 +52,7 @@
         </form>
 
         <div>
-            <img src="/images/login.svg" alt="">
+            <img src="/images/login.svg" alt="" class="mt-12 lg:mt-0">
         </div>
     </div>
 </x-guest-layout>

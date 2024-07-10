@@ -1,6 +1,6 @@
 <x-guest-layout>
 
-    <div class="container mx-auto flex justify-center items-center h-[50vh] w-fit p-6 ">
+    <div class="container mx-auto flex flex-col lg:flex-row justify-center items-center h-[50vh] w-fit p-6 ">
 
         <form method="POST" action="{{ route('register') }}" class="w-[400px]">
             @csrf
