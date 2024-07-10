@@ -33,7 +33,7 @@
                     <x-slot name="trigger">
                         <button class="text-white bg-purple font-bold inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4  rounded-md  hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                             @auth
-                            <div class="text-white bg-purple font-bold">{{ Auth::user()->name }}</div>
+                            <div class="text-white bg-purple font-bold hover:text-black">{{ Auth::user()->name }}</div>
                             @endauth
 
                             <div class="ms-1">

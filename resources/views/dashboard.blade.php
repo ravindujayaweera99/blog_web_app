@@ -2,7 +2,7 @@
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 text-center">
             <div>
-                {{ __('Welcome to User Dashboard') }}
+                {{ __('User Dashboard') }}
             </div>
         </h2>
     </x-slot>
@@ -57,8 +57,8 @@
                                     <div class="h-[200px] w-[90%] mx-auto bg-white my-6 rounded"></div>
                                 @endif
                                 <!-- <p class="text-black text-base">
-                                                                    <b>Content:</b> {!! $userPost->body !!}
-                                                                </p> -->
+                                                                        <b>Content:</b> {!! $userPost->body !!}
+                                                                    </p> -->
                             </div>
                             <div class="md:px-6 py-4 flex flex-col md:flex-row gap-4 md:justify-start items-center">
                                 <a href={{route('singlePost', $userPost->id)}}
