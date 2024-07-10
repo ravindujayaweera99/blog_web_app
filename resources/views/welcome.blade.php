@@ -42,16 +42,16 @@
         </form>
     </div>
 
-    <div class="container mx-auto grid grid-cols-3">
+    <div class="container grid grid-cols-3">
         @foreach ($posts as $post)
             <a href="{{ route('singlePost', $post->id) }}">
-                <div class="relative w-full m-6 rounded overflow-hidden bg-black text-white group">
+                <div class="relative m-6 rounded overflow-hidden bg-black text-white group">
                     <div class="text-center">
                         @if ($post->image)
                             <img src="{{ asset('storage/images/' . $post->image) }}" alt="{{ $post->title }}"
                                 class="h-[250px] w-full rounded border border-white">
                         @else
-                            <div class="h-[200px] w-full mx-auto bg-white rounded"></div>
+                            <div class="h-[200px]  bg-white rounded"></div>
                         @endif
                         <div
                             class="absolute inset-0 flex flex-col justify-center items-center bg-black bg-opacity-90 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
