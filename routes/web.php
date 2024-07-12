@@ -27,7 +27,9 @@ Route::get('/singlepost/{post}', [PostController::class, 'viewPost'])->name('sin
 
 Route::get('/dashboard', [PostController::class, 'userPosts'])->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/admin/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'admin']);
+Route::get('/admin/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'admin'])->name('adminDashboard');
+Route::get('/admin/createuser',[AdminController::class, 'createuser'])->name('admin.createuser');
+Route::get('/admin/userlist',[AdminController::class, 'userlist'])->name('admin.userlist');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
