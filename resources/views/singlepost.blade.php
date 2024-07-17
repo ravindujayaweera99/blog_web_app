@@ -15,7 +15,12 @@
             <h1 class="text-3xl font-bold text-center">{{ $post->title }}</h1>
             <p class="text-center text-purple font-bold">Category: {{$post->category}}</p>
         </div>
-        <p class="text-center">Published by {{$post->user->name}}</p>
+        @if ($post->user)
+            <p class="text-center">Published by {{$post->user->name}}</p>
+        @endif
+        @if (!$post->user)
+            <p class="text-center">Published by Deleted User</p>
+        @endif
         <p class="text-center">{{$post->created_at->diffForHumans()}}</p>
         @if($post->image)
             <img src="{{ asset('storage/images/' . $post->image) }}" alt="{{ $post->title }}"

@@ -64,7 +64,7 @@
                                     <div class="font-normal text-md text-white">By {{ $post->user->name }}</div>
                                 @endif
                                 @if (!$post->user)
-                                    <div class="font-normal text-md text-white">By Unknown User</div>
+                                    <div class="font-normal text-md text-white">By Deleted User</div>
                                 @endif
                                 <div class="font-normal text-sm my-2 text-white">Posted
                                     {{ $post->created_at->diffForHumans() }}

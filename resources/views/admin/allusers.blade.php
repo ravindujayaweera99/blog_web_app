@@ -16,7 +16,7 @@
                     class=" bg-purple text-md font-bold py-4 px-6 rounded text-white my-8 hover:text-black">Create
                     User / Create Admin</a>
                 <h1 class="my-4 font-bold text-2xl uppercase">Current Users</h1>
-                <table class="w-[70vw] text-center font-medium">
+                <table class="w-[70vw] text-center font-medium ">
                     <tr class="bg-purple text-white border">
                         <th>User Name</th>
                         <th>User Email</th>
@@ -25,7 +25,7 @@
                         <th>Actions</th>
                     </tr>
                     @foreach ($allusers as $user)
-                        <tr>
+                        <tr class="odd:bg-white even:bg-slate-100">
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             @if ($user->usertype === 'admin')
