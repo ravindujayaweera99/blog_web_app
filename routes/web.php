@@ -32,6 +32,8 @@ Route::get('/admin/createuser', [AdminController::class, 'createuser'])->name('a
 Route::post('/admin/createuser', [AdminController::class, 'storeUser'])->name('admin.storeuser');
 Route::get('/admin/userlist', [AdminController::class, 'userlist'])->name('admin.userlist');
 Route::delete('/admin/userlist/{user}', [AdminController::class, 'destroy'])->name('admin.destroy');
+Route::get('/admin/allposts', [AdminController::class, 'allPosts'])->name('admin.allposts');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

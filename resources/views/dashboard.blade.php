@@ -10,7 +10,7 @@
     <div class="py-12 flex flex-col justify-center items-center gap-12">
         <div class="w-[100vw] mx-auto sm:px-6 lg:px-8">
             <div class="overflow-hidden flex justify-center items-center">
-                <div class="text-gray-900 flex flex-col md:flex-row">
+                <div class="text-gray-900 flex flex-col md:flex-row shadow-xl">
                     <div class="w-fit flex flex-col lg:flex-row  justify-center items-end">
                         <div
                             class=" text-black rounded border-purple/50 shadow-md border lg:mr-6 lg:w-fit px-6 h-[100%] py-6 flex flex-col justify-center">

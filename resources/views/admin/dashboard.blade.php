@@ -1,9 +1,24 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex justify-center items-center gap-32">
-            @include('includes.adminmetric')
-            @include('includes.adminmetric')
-            @include('includes.adminmetric')
+            <div class="py-12">
+                <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+                    <div
+                        class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 flex flex-col justify-center items-center">
+                        <h3 class="text-2xl font-semibold mb-4">Overall Statistics</h3>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                            <div class="border border-purple p-7 rounded-lg text-center">
+                                <p class="text-5xl text-purple">{{ $userCount }}</p>
+                                <h4 class="text-xl font-semibold">Total Users</h4>
+                            </div>
+                            <div class="border border-purple p-7 rounded-lg text-center">
+                                <p class="text-5xl text-purple">{{ $postCount }}</p>
+                                <h4 class="text-xl font-semibold">Total Posts</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -16,6 +31,10 @@
             <a href={{route('admin.userlist')}}
                 class=" bg-purple text-md font-bold py-4 px-6 rounded text-white my-4 hover:text-black">View Registerd
                 Users</a>
+
+            <a href={{route('admin.allposts')}}
+                class=" bg-purple text-md font-bold py-4 px-6 rounded text-white my-4 hover:text-black">View All
+                Posts</a>
         </div>
     </x-slot>
 </x-app-layout>

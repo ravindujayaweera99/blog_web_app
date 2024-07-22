@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Post;
 use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Hash;
 
@@ -12,13 +13,27 @@ class AdminController extends Controller
 {
     public function index()
     {
-        return view('admin.dashboard');
+        $userCount = User::count();
+        $postCount = Post::count();
+
+        return view('admin.dashboard', compact('userCount', 'postCount'));
     }
 
     public function createuser()
     {
+
+
         return view('admin.createuser');
     }
+
+    public function allPosts()
+    {
+
+        $posts = Post::latest()->get();
+
+        return view('admin.allposts', compact('posts'));
+    }
+
 
     public function storeUser(Request $request)
     {
@@ -39,7 +54,8 @@ class AdminController extends Controller
         return redirect()->route('admin.userlist')->with('success', 'User created successfully!');
     }
 
-    public function updateStore(Request $request){
+    public function updateStore(Request $request)
+    {
 
     }
 
