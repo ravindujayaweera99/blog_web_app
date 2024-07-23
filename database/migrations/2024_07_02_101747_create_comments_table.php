@@ -15,6 +15,7 @@ return new class extends Migration {
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('post_id');
             $table->text('body');
+            $table->boolean('approved')->default(0);
             $table->timestamps();
         });
     }

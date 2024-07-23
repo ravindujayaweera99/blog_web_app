@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\UserComment;
+use App\Models\Comment;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class CommentController extends Controller
@@ -15,16 +16,16 @@ class CommentController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:32',
-            'email' => 'required|email',
-            'message' => 'required|string|required|max:255'
+            'post_id' => 'required|exists:posts,id',
+            'body' => 'required|string|max:1000',
         ]);
-        $userComment = new UserComment();
-        $userComment->name = $request->input('name');
-        $userComment->email = $request->input('email');
-        $userComment->message = $request->input('message');
-        $userComment->save();
 
-        return redirect()->back()->with('success', 'Comment stored successfully!');
+        Comment::create([
+            'user_id' => Auth::id(),
+            'post_id' => $request->post_id,
+            'body' => $request->body,
+        ]);
+
+        return redirect()->back()->with('success', 'Comment added successfully!');
     }
 }

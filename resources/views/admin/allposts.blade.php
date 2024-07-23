@@ -11,7 +11,7 @@
 <body>
     <x-app-layout>
         <div class="container mx-auto py-12">
-            <h1 class="text-3xl font-bold mb-6">All Posts</h1>
+            <h1 class="text-3xl font-bold mb-6 text-center uppercase">All Posts</h1>
             <table class="min-w-full bg-white border border-gray-200">
                 <thead>
                     <tr>
@@ -37,7 +37,6 @@
                                 <td class="font-normal text-md text-red-500 border-b ">By Deleted User</td>
                             @endif
                             <td class="px-4 py-2 border-b ">
-                                <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded">Edit</a>
                                 <form action="{{ route('post.destroy', $post) }}" method="POST" class="inline delete-form">
                                     @csrf
                                     @method('DELETE')

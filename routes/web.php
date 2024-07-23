@@ -4,6 +4,9 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CommentController;
+
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
 
 Route::get('/', [PostController::class, 'filterByCategory'])->name('welcome');
 Route::get('/allposts', [PostController::class, 'allPosts'])->name('allposts');

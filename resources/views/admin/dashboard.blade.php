@@ -4,7 +4,7 @@
             <div class="py-12">
                 <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
                     <div
-                        class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-6 flex flex-col justify-center items-center">
+                        class="bg-white overflow-hidden shadow-xl sm:rounded-lg p-16 flex flex-col justify-center items-center border-2 border-purple">
                         <h3 class="text-2xl font-semibold mb-4">Overall Statistics</h3>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                             <div class="border border-purple p-7 rounded-lg text-center">
