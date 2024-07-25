@@ -17,29 +17,29 @@
                     Create User / Create Admin
                 </a>
                 <h1 class="my-4 font-bold text-2xl uppercase">Current Users</h1>
-                <table class="w-[70vw] text-center font-medium ">
+                <table class="w-[90vw] lg:w-[70vw] text-center font-medium ">
                     <tr class="bg-purple text-white border">
-                        <th>User Name</th>
-                        <th>User Email</th>
-                        <th>User Type</th>
-                        <th>Created Time</th>
-                        <th>Actions</th>
+                        <th class="text-sm">User Name</th>
+                        <th class="text-sm">User Email</th>
+                        <th class="text-sm">User Type</th>
+                        <th class="text-sm">Created Time</th>
+                        <th class="text-sm">Actions</th>
                     </tr>
                     @foreach ($allusers as $user)
                         <tr class="odd:bg-white even:bg-slate-100">
-                            <td>{{ $user->name }}</td>
-                            <td>{{ $user->email }}</td>
+                            <td class="text-sm">{{ $user->name }}</td>
+                            <td class="text-sm">{{ $user->email }}</td>
                             @if ($user->usertype === 'admin')
                                 <td class="uppercase text-red-500">{{ $user->usertype }}</td>
                             @endif
                             @if ($user->usertype === 'user')
-                                <td class="uppercase text-blue-500">{{ $user->usertype }}</td>
+                                <td class="uppercase text-blue-500 text-sm">{{ $user->usertype }}</td>
                             @endif
-                            <td>
+                            <td class="text-sm">
                                 {{ $user->created_at->diffForHumans() }}
                             </td>
                             <td>
-                                <div class="flex justify-center items-center gap-8">
+                                <div class="flex justify-center items-center gap-4 lg:gap-8 p-4 lg:p-0">
                                     <a href="#"
                                         class="border bg-blue-500 -blue-500 rounded text-white px-2 py-0 hover:bg-blue-500 hover:text-black transition duration-150 ease-in-out my-1 cursor-pointer"
                                         onclick="openEditForm({{ $user }})">

@@ -16,7 +16,7 @@
                 <thead>
                     <tr>
                         <th class="px-4 py-2 border-b">Title</th>
-                        <th class="px-4 py-2 border-b">Image</th>
+                        <th class="px-4 py-2 border-b lg:block hidden">Image</th>
                         <th class="px-4 py-2 border-b">Published Time</th>
                         <th class="px-4 py-2 border-b">Published By</th>
                         <th class="px-4 py-2 border-b">Actions</th>
@@ -26,7 +26,7 @@
                     @foreach ($posts as $post)
                         <tr>
                             <td class="px-4 py-2 border-b">{{ $post->title }}</td>
-                            <td class="px-4 py-2 border-b flex justify-center items-center"><img
+                            <td class="px-4 py-2 border-b justify-center items-center lg:flex hidden"><img
                                     src="{{ asset('storage/images/' . $post->image) }}" alt="{{ $post->title }}"
                                     class="hidden md:block h-[50px] w-[100px] my-6 border border-black rounded"></td>
                             <td class="px-4 py-2 border-b">{{$post->created_at->diffForHumans()}}</td>

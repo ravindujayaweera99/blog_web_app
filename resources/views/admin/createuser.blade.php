@@ -1,7 +1,7 @@
 <x-app-layout>
     <div class="container mx-auto flex flex-col lg:flex-row justify-center items-center h-[90vh] w-fit p-6 ">
         <form method="POST" action="{{ route('admin.storeuser') }}"
-            class="w-[600px] border-2 border-purple px-24 py-8 rounded-lg">
+            class=" w-[90vw] lg:w-[600px] border-2 border-purple px-24 py-8 rounded-lg">
             @csrf
 
             <!-- Name -->
