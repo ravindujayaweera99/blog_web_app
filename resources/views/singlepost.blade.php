@@ -10,7 +10,7 @@
 <body>
     @include('includes/navbar')
 
-    <div class="container w-[75%] mx-auto py-8">
+    <div class="container lg:w-[75%] w-[90%] mx-auto py-8">
         <div class="mb-4">
             <h1 class="text-3xl font-bold text-center">{{ $post->title }}</h1>
             <p class="text-center text-purple font-bold">Category: {{$post->category}}</p>
@@ -34,7 +34,7 @@
 
         @if ($post->comments->count())
             @foreach ($post->comments as $comment)
-                <div class="my-4 mx-64 p-4 bg-purple/10 rounded">
+                <div class="my-4 mx-4 lg:mx-64 p-4 bg-purple/10 rounded">
                     <p class="text-sm text-purple font-bold"> {{ $comment->owner->name }} -
                         {{ $comment->created_at->diffForHumans() }}
                     </p>
@@ -47,7 +47,7 @@
         @endif
 
         @auth
-            <form action="{{ route('comments.store') }}" method="POST" class="my-12 mx-64">
+            <form action="{{ route('comments.store') }}" method="POST" class="my-12 mx-4 lg:mx-64">
                 @csrf
                 <input type="hidden" name="post_id" value="{{ $post->id }}">
                 <div class="mb-4">

@@ -18,6 +18,7 @@
                 // these IDs from the previous steps
                 emailjs.sendForm('service_a6tbnxh', 'template_7td2nfd', this)
                     .then(() => {
+                        document.getElementById("contact-form").reset();
                         console.log('SUCCESS!');
                     }, (error) => {
                         console.log('FAILED...', error);
