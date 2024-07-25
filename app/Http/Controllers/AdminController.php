@@ -54,9 +54,21 @@ class AdminController extends Controller
         return redirect()->route('admin.userlist')->with('success', 'User created successfully!');
     }
 
-    public function updateStore(Request $request)
+    public function updateUser(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $request->id,
+            'usertype' => 'required|string|in:user,admin',
+        ]);
 
+        $user = User::findOrFail($request->id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->usertype = $request->usertype;
+        $user->save();
+
+        return redirect()->route('admin.userlist')->with('success', 'User updated successfully!');
     }
 
 
