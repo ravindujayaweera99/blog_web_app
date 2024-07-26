@@ -5,7 +5,7 @@
             @csrf
 
             <!-- Name -->
-            <h1 class="text-center text-3xl uppercase mb-6">Create User / Admin</h1>
+            <h1 class="text-center lg:text-3xl uppercase mb-6">Create User / Admin</h1>
             <div>
                 <x-input-label for="name" :value="__('Name')" />
                 <x-text-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required

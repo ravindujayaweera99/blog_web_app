@@ -4,59 +4,60 @@
 </head>
 
 <x-app-layout>
-
-    <div
-        class="lg:w-[80%] h-fit flex flex-col lg:flex-row justify-center items-center mx-auto sm:px-6 lg:px-8 max-h-[80vh]">
-        <div class=" w-[100%] sm:rounded-lg">
-            <form action="{{ route('post.store') }}" method="post" class="flex flex-col p-12 lg:py-6 md:m-6 gap-6"
+    <div class="lg:w-[80%] h-fit flex flex-col lg:flex-row justify-center items-center mx-auto sm:px-6 lg:px-8 py-12">
+        <div class="w-full sm:rounded-lg bg-white shadow-lg p-8 lg:p-10">
+            <form action="{{ route('post.store') }}" method="post" class="flex flex-col gap-6"
                 enctype="multipart/form-data">
-                <h1 class="font-bold text-2xl">Add New Post</h1>
+                <h1 class="font-bold text-2xl text-gray-800">Add New Post</h1>
                 @csrf
 
-                <div class="w-[100%] flex flex-col mb-6">
-                    <label for="title" class="font-bold">Blog Title</label>
-                    <input type="text" name="title" value="">
+                <div class="flex flex-col mb-6">
+                    <label for="title" class="font-bold text-gray-700">Blog Title</label>
+                    <input type="text" name="title"
+                        class="mt-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        placeholder="Enter blog title" required>
                 </div>
 
-                <div class="w-[100%] flex flex-col mb-6">
-                    <label for="category" class="font-bold">Category</label>
-                    <select name="category" id="category">
+                <div class="flex flex-col mb-6">
+                    <label for="category" class="font-bold text-gray-700">Category</label>
+                    <select name="category" id="category"
+                        class="mt-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500">
                         <option value="Technology">Technology</option>
                         <option value="Travel">Travel</option>
                         <option value="Food">Food</option>
-                        <option value="sports">Sports</option>
+                        <option value="Sports">Sports</option>
                         <option value="E-sports">E-Sports</option>
                     </select>
                 </div>
 
-
-                <div class="w-[100%] flex flex-col mb-6">
-                    <label for="body" class="font-bold">Blog Content</label>
-                    <textarea name="body"></textarea>
+                <div class="flex flex-col mb-6">
+                    <label for="body" class="font-bold text-gray-700">Blog Content</label>
+                    <textarea name="body"
+                        class="mt-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
+                        rows="10" placeholder="Write your blog content here" required></textarea>
                 </div>
 
-                <div class="w-[100%] flex flex-col mb-6">
-                    <label for="inputImage" class="form-label font-bold">Blog Image:</label>
-                    <input type="file" name="image" class="form-control @error('image') is-invalid @enderror"
-                        id="inputImage">
+                <div class="flex flex-col mb-6">
+                    <label for="inputImage" class="font-bold text-gray-700">Blog Image:</label>
+                    <input type="file" name="image"
+                        class="mt-2 p-2 border border-gray-300 rounded focus:outline-none @error('image')  @enderror"
+                        id="inputImage" accept="image/*" required>
                     @error('image')
-                        <div class="form-text text-red-500">{{ $message }}</div>
+                        <div class="text-red-500 text-sm mt-1">{{ $message }}</div>
                     @enderror
                 </div>
 
-                <div class="w-[100%] flex flex-col mb-6">
+                <div class="flex flex-col mb-6">
                     <input type="submit" value="Publish"
-                        class="inline-flex items-center px-4 py-2 bg-purple border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:text-black cursor-pointer focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150" />
+                        class="inline-flex items-center justify-center px-4 py-2 bg-purple border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-purple-700 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2 transition ease-in-out duration-150 cursor-pointer" />
                 </div>
-
             </form>
         </div>
-        <div>
-            <img src="/images/addpost.svg" alt="" class="hidden lg:block">
+
+        <div class="hidden lg:block lg:ml-8">
+            <img src="/images/addpost.svg" alt="Add Post" class="w-full max-w-xs">
         </div>
     </div>
-
-
 
     @include('includes/footer');
 
@@ -71,5 +72,4 @@
                 console.error('Error during initialization of the editor', error);
             });
     </script>
-
 </x-app-layout>
