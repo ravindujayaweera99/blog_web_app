@@ -27,7 +27,7 @@
     </div>
 
 
-    <h1 class="text-center font-bold text-5xl text-black my-12">LATEST BLOGS</h1>
+    <h1 class="text-center font-bold text-5xl text-black mt-12 mb-8">LATEST BLOGS</h1>
 
     <div class="p-4 w-full flex flex-col justify-center items-center">
         <form action="{{ route('welcome') }}" method="GET" class="w-full md:w-1/2">
@@ -53,7 +53,7 @@
                     <div class="text-center">
                         @if ($post->image)
                             <img src="{{ asset('storage/images/' . $post->image) }}" alt="{{ $post->title }}"
-                                class="h-[250px] w-[450px] rounded border border-white">
+                                class="h-[200px] w-[350px] rounded border border-white">
                         @else
                             <div class="h-[200px]  bg-white rounded"></div>
                         @endif
@@ -83,7 +83,7 @@
 
     <div class="m-4 flex justify-center items-center w-[100%]">
         <a href="{{ route('allposts') }}"
-            class="text-white text-md py-4 px-6 bg-purple rounded hover:text-black my-4">View All Blogs</a>
+            class="text-white text-md py-4 px-6 bg-purple rounded hover:text-black mb-4">View All Blogs</a>
     </div>
 
 
