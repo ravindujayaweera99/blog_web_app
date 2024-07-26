@@ -22,18 +22,20 @@
         </div>
 
 
-        <div class="flex flex-col lg:flex-row justify-center items-center gap-8">
+        <div class="flex flex-col lg:flex-row justify-center items-center lg:gap-8">
             <a href={{route('admin.createuser')}}
                 class=" bg-purple text-md font-bold py-2 px-4 lg:py-4 lg:px-6 rounded text-white my-4 hover:text-black">Create
                 User / Create Admin</a>
 
 
             <a href={{route('admin.userlist')}}
-                class=" bg-purple text-md font-bold py-2 px-4 lg:py-4 lg:px-6rounded text-white my-4 hover:text-black">View Registerd
+                class=" bg-purple text-md font-bold py-2 px-4 lg:py-4 lg:px-6rounded text-white my-4 hover:text-black">View
+                Registerd
                 Users</a>
 
             <a href={{route('admin.allposts')}}
-                class=" bg-purple text-md font-bold py-2 px-4 lg:py-4 lg:px-6 rounded text-white my-4 hover:text-black">View All
+                class=" bg-purple text-md font-bold py-2 px-4 lg:py-4 lg:px-6 rounded text-white my-4 hover:text-black">View
+                All
                 Posts</a>
         </div>
     </x-slot>
