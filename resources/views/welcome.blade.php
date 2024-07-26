@@ -9,13 +9,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 </head>
 
-<style>
-    .swiper {
-        width: 100vw;
-        height: 600px;
-    }
-</style>
-
 <body class="bg-main">
     @include('includes/navbar')
 
@@ -53,7 +46,7 @@
     </div>
 
 
-    <div class="flex flex-col justify-center lg:grid items-center lg:grid-cols-3 m-6">
+    <div class="flex flex-wrap justify-center items-center">
         @foreach ($posts as $post)
             <a href="{{ route('singlePost', $post->id) }}">
                 <div class="relative w-fit text-white group m-3">
