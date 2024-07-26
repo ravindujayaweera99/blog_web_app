@@ -20,7 +20,7 @@
         <h1>{{ $allPosts->links() }}</h1>
     </div>
 
-    <div class="flex flex-col justify-center items-center md:grid md:grid-cols-2 lg:grid-cols-3 m-6">
+    <div class="flex  justify-center items-center flex-wrap">
         @foreach ($allPosts as $post)
             <a href="{{ route('singlePost', $post->id) }}">
                 <div class="relative w-fit text-white group m-3">
@@ -38,10 +38,10 @@
                             </div>
                             <div>
                                 @if ($post->user)
-                                <div class="font-normal text-md text-white">By {{ $post->user->name }}</div>
+                                    <div class="font-normal text-md text-white">By {{ $post->user->name }}</div>
                                 @endif
                                 @if (!$post->user)
-                                <div class="font-normal text-md text-white">By Deleted User</div>
+                                    <div class="font-normal text-md text-white">By Deleted User</div>
                                 @endif
                                 <div class="font-normal text-sm my-2 text-white">Posted
                                     {{ $post->created_at->diffForHumans() }}
@@ -57,7 +57,7 @@
     <div class=" py-8 px-32">
         <h1>{{ $allPosts->links() }}</h1>
     </div>
-    
+
 </x-app-layout>
 
 @include('includes/footer')

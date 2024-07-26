@@ -26,7 +26,7 @@
                         <th class="text-sm">Actions</th>
                     </tr>
                     @foreach ($allusers as $user)
-                        <tr class="odd:bg-white even:bg-slate-100">
+                        <tr class="odd:bg-white even:bg-purple/5">
                             <td class="text-sm">{{ $user->name }}</td>
                             <td class="text-sm">{{ $user->email }}</td>
                             @if ($user->usertype === 'admin')

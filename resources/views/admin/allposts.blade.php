@@ -24,7 +24,7 @@
                 </thead>
                 <tbody class="text-center">
                     @foreach ($posts as $post)
-                        <tr>
+                        <tr class="odd:bg-white even:bg-purple/5">
                             <td class="px-4 py-2 border-b">{{ $post->title }}</td>
                             <td class="px-4 py-2 border-b justify-center items-center lg:flex hidden"><img
                                     src="{{ asset('storage/images/' . $post->image) }}" alt="{{ $post->title }}"
