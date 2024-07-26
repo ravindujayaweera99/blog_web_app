@@ -36,13 +36,20 @@
                             @if (!$post->user)
                                 <td class="font-normal text-md text-red-500 border-b ">By Deleted User</td>
                             @endif
+
                             <td class="px-4 py-2 border-b ">
-                                <form action="{{ route('post.destroy', $post) }}" method="POST" class="inline delete-form">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="button"
-                                        class="bg-red-500 text-white px-4 py-2 rounded delete-button">Delete</button>
-                                </form>
+                                <div class="flex gap-8 justify-center items-center">
+                                    <a href="{{ route('singlePost', $post->id) }}"
+                                        class="border bg-green-500 text-white font-bold border-green-500 rounded hover:bg-green-600 transition duration-150 ease-in-out px-2 py-1">View
+                                    </a>
+                                    <form action="{{ route('post.destroy', $post) }}" method="POST"
+                                        class="inline delete-form">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="button"
+                                            class="bg-red-500 text-white px-4 py-2 rounded delete-button">Delete</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
