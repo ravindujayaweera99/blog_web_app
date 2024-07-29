@@ -79,6 +79,12 @@ class AdminController extends Controller
         return view('admin.allusers', compact('allusers'));
     }
 
+    public function deletePost(Post $post)
+    {
+        $post->delete();
+        return redirect()->route('admin.allposts')->with('success', 'Post deleted successfully!');
+    }
+
     public function destroy(User $user)
     {
         $user->delete();

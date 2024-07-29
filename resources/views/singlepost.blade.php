@@ -68,7 +68,7 @@
                 </form>
             @else
                 <p class="my-8 text-lg text-center text-gray-600">Please <a href="{{ route('login') }}"
-                        class="text-purple-600 hover:underline">login</a> to comment.</p>
+                        class="text-purple font-semibold hover:underline">login</a> to comment.</p>
             @endauth
         </div>
     </div>

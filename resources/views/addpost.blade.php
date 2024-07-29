@@ -7,7 +7,7 @@
     <div class="lg:w-[80%] h-fit flex flex-col lg:flex-row justify-center items-center mx-auto sm:px-6 lg:px-8 py-12">
         <div class="w-full sm:rounded-lg bg-white shadow-lg p-8 lg:p-10">
             <form action="{{ route('post.store') }}" method="post" class="flex flex-col gap-6"
-                enctype="multipart/form-data">
+                enctype="multipart/form-data" onsubmit="return validateForm()">
                 <h1 class="font-bold text-2xl text-gray-800">Add New Post</h1>
                 @csrf
 
@@ -32,9 +32,9 @@
 
                 <div class="flex flex-col mb-6">
                     <label for="body" class="font-bold text-gray-700">Blog Content</label>
-                    <textarea name="body"
+                    <textarea name="body" id="body"
                         class="mt-2 p-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-purple-500"
-                        rows="10" placeholder="Write your blog content here" required></textarea>
+                        rows="10" placeholder="Write your blog content here"></textarea>
                 </div>
 
                 <div class="flex flex-col mb-6">
@@ -63,13 +63,26 @@
 
     <script>
         // Initialize CKEditor
+        let editor;
         ClassicEditor
             .create(document.querySelector('textarea'))
-            .then(editor => {
+            .then(ed => {
+                editor = ed;
                 console.log('Editor was initialized', editor);
             })
             .catch(error => {
                 console.error('Error during initialization of the editor', error);
             });
+
+        // Validate form
+        function validateForm() {
+            const bodyField = document.querySelector('textarea[name="body"]');
+            bodyField.value = editor.getData();
+            if (bodyField.value.trim() === '') {
+                alert('Blog Content is required');
+                return false;
+            }
+            return true;
+        }
     </script>
 </x-app-layout>

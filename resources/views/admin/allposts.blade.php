@@ -42,7 +42,7 @@
                                     <a href="{{ route('singlePost', $post->id) }}"
                                         class="border bg-green-500 text-white font-bold border-green-500 rounded hover:bg-green-600 transition duration-150 ease-in-out px-2 py-1">View
                                     </a>
-                                    <form action="{{ route('post.destroy', $post) }}" method="POST"
+                                    <form action="{{ route('admin.deletePost', $post) }}" method="POST"
                                         class="inline delete-form">
                                         @csrf
                                         @method('DELETE')

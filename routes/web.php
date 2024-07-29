@@ -38,6 +38,7 @@ Route::post('/admin/createuser', [AdminController::class, 'storeUser'])->name('a
 Route::get('/admin/userlist', [AdminController::class, 'userlist'])->name('admin.userlist');
 Route::delete('/admin/userlist/{user}', [AdminController::class, 'destroy'])->name('admin.destroy');
 Route::get('/admin/allposts', [AdminController::class, 'allPosts'])->name('admin.allposts');
+Route::delete('/admin/posts/{post}', [AdminController::class, 'deletePost'])->middleware(['auth', 'admin'])->name('admin.deletePost');
 Route::put('/admin/updateuser', [AdminController::class, 'updateUser'])->name('admin.updateuser');
 
 //Auth Routes

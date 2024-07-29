@@ -3,15 +3,18 @@
     <div class="p-4 w-full flex flex-col justify-center items-center">
         <form action="{{ route('allposts') }}" method="GET" class="w-full md:w-1/2">
             <div class="flex flex-col md:flex-row justify-center items-center gap-4">
-                <select name="category" class="form-select w-full md:w-1/2">
-                    <option value="">All Categories</option>
+                <div class="flex flex-wrap gap-4 justify-center">
+                    <button type="submit" name="category" value=""
+                        class="flex items-center gap-2 px-4 py-2 bg-white text-gray-700 rounded-md border border-gray-300 hover:bg-gray-200 focus:ring focus:ring-purple-300 focus:outline-none focus:border-purple-500">
+                        <i class="fas fa-list"></i> All Categories
+                    </button>
                     @foreach ($categories as $cat)
-                        <option value="{{ $cat->category }}" {{ $category == $cat->category ? 'selected' : '' }}>
+                        <button type="submit" name="category" value="{{ $cat->category }}"
+                            class="flex items-center  gap-2 px-4 py-2 bg-white text-black rounded-md border border-gray-300 hover:bg-purple hover:text-white focus:ring focus:ring-purple-300 focus:outline-none focus:border-purple-500">
                             {{ $cat->category }}
-                        </option>
+                        </button>
                     @endforeach
-                </select>
-                <button type="submit" class="bg-purple text-white py-2 px-4 rounded">Filter</button>
+                </div>
             </div>
         </form>
     </div>
